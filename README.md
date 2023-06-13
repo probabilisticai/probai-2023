@@ -10,6 +10,9 @@ Materials of the Nordic Probabilistic AI School ([ProbAI](https://www.probabilis
   - [[slides and materials](https://github.com/PGM-Lab/2023-ProbAI)] Andrés R. Masegosa & Thomas D. Nielsen - *Probabilistic Modeling and Programming Tutorial*
   - [[slides](https://github.com/probabilisticai/probai-2023/tree/main/day_1/4_arto/BetterPriorsKlami.pdf)] Arto Klami - *Bette Priors for Everyone*
 
+* Day 2 (June 13):
+  - [[slides and materials](https://github.com/PGM-Lab/2023-ProbAI)] Helge Langseth, Andrés R. Masegosa, Thomas D. Nielsen - *Variational Inference and Optimization*
+
 ## PhD Course (DT8122)
 
 To be announced.
