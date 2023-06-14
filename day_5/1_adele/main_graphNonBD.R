@@ -44,10 +44,16 @@ trueADMG.ig <- igraph_from_graphNel(trueDAG.gNEL, latents(trueDAG.dag))
 # Note: this plots the causal diagram with bidirected edges indicating unmeasured confounders
 plot(trueADMG.ig)
 
+
+###################################################
+# Checking the conditional independence relations #
+# implied by the true Causal Diagram              #
+###################################################
+
 # Getting the minimal conditional independence relationships over the observed variables,
 # implied by the true ADMG -- obtained by minimal d-separators
 trueImpliedCI <- dagitty::impliedConditionalIndependencies(trueDAG.dag, type = "missing.edge")
-trueImpliedCI
+print(trueImpliedCI)
 
 
 ################################################################
@@ -64,7 +70,7 @@ amat.mag <- dagitty2amat(mag, type="mag")
 adj <- adjustment(amat = amat.mag,
                   amat.type = "mag", x = x, y = y,
                   set.type = "all")
-adj # There is no valid adjustment set for X={X1,X2} and Y={Y1,Y2,Y3,Y4,Y5}
+print(adj) # There is no valid adjustment set for X={X1,X2} and Y={Y1,Y2,Y3,Y4,Y5}
 
 
 ########################################################
@@ -89,7 +95,7 @@ retDAG <- causaleffect::causal.effect(y=y, x=x, z=z,
                                       expr = FALSE,
                                       simp = TRUE,
                                       steps = TRUE)
-print(retDAG)
+#print(retDAG)
 
 
 
@@ -134,7 +140,7 @@ p_x2y3.y2 <- indepTest(X2ind, Y3ind, Y2ind, suffStat)
 p_y3y1.y5 <- indepTest(Y3ind, Y1ind, Y5ind, suffStat)
 p_y3y5 <- indepTest(Y3ind, Y5ind, c(), suffStat)
 
-all(c(p_x1y4.y3, p_x1y5.y1, p_x2y3.y2, p_y3y1.y5, p_y3y5) < alpha)
+print(all(c(p_x1y4.y3, p_x1y5.y1, p_x2y3.y2, p_y3y1.y5, p_y3y5) < alpha))
 
 
 # minimal indepedencies
@@ -154,8 +160,8 @@ p_y2y4 <- indepTest(Y2ind, Y4ind, c(), suffStat)
 p_y2y5 <- indepTest(Y2ind, Y5ind, c(), suffStat)
 p_y3y5.y4 <- indepTest(Y3ind, Y5ind, Y4ind, suffStat)
 
-all(c(p_x1y2.x2, p_x1y4, p_x1y5, p_x2y3, p_x2y4, p_x2y5, p_y1y2.x2,
-      p_y1y3.x1y4, p_y1y3.x1y5, p_y1y4.y5, p_y2y4, p_y2y5, p_y3y5.y4) >= alpha)
+print(all(c(p_x1y2.x2, p_x1y4, p_x1y5, p_x2y3, p_x2y4, p_x2y5, p_y1y2.x2,
+      p_y1y3.x1y4, p_y1y3.x1y5, p_y1y4.y5, p_y2y4, p_y2y5, p_y3y5.y4) >= alpha))
 
 ###############################
 # Estimating a PAG using FCI  #
@@ -179,7 +185,7 @@ estPAG <- pcalg::fci(suffStat,
 plot(estPAG)
 
 # True and estimated PAGs are identical
-all(truePAG@amat - estPAG@amat == 0)
+print(all(truePAG@amat - estPAG@amat == 0))
 
 
 
@@ -195,8 +201,9 @@ all(truePAG@amat - estPAG@amat == 0)
 amat.mag <- pcalg::pag2magAM(estPAG@amat, 1)
 plotAG(amat.mag)
 amag <- pcalg::pcalg2dagitty(amat.mag, colnames(amat.mag), type="mag")
+
 estImpliedCI <- dagitty::impliedConditionalIndependencies(amag)
-estImpliedCI
+print(estImpliedCI)
 
 
 ###########################################################
@@ -215,17 +222,17 @@ y <- Yinds
 estPAG.amat <- estPAG@amat
 
 adj <- adjustment(amat = estPAG.amat, amat.type = "pag", x = x, y = y, set.type = "all")
-adj # There is no valid adjustment set for X={A, F} and Y={Y}
+print(adj) # There is no valid adjustment set for X={A, F} and Y={Y}
 
 
 # Testing if the particular set {} is valid for adjustment:
 z <- c()
 gac_z <- gac(estPAG.amat, x, y, z, type = "pag")
-gac_z$gac # the set is not valid for adjustment
+print(gac_z$gac) # the set is not valid for adjustment
 
 # the third condition of the gac is violated, i.e.,
 # not all proper definite status non-causal paths from x to y are blocked by z
-gac_z$res
+print(gac_z$res)
 
 
 
@@ -243,12 +250,12 @@ z <- NULL
 estPAG.amat <- estPAG@amat
 
 retPAG <- CIDP(estPAG.amat, x, y, z)
-retPAG$id
+print(retPAG$id)
 print(paste0("ID from PAG: ", retPAG$Qexpr[[retPAG$query]]))
 
 # This shows the steps taken by the CIDP algorithm
 # by substitution and simplification, we will get the same
 # identification formula from the ADMG
-retPAG$Qexpr
+print(retPAG$Qexpr)
 
 

@@ -59,7 +59,7 @@ plot(trueADMG.ig)
 # Getting the minimal conditional independence relationships over the observed variables,
 # implied by the true ADMG -- obtained by minimal d-separators
 trueImpliedCI <- dagitty::impliedConditionalIndependencies(trueDAG.dag, type = "missing.edge")
-trueImpliedCI
+print(trueImpliedCI)
 
 
 ##########################################
@@ -83,7 +83,7 @@ plotAG(amat.mag)
 adj <- adjustment(amat = amat.mag,
                   amat.type = "mag", x = x, y = y,
                   set.type = "all")
-adj # The valid adjustment sets for X={B} and Y={C} are {D} and {A,D}
+print(adj) # The valid adjustment sets for X={B} and Y={C} are {D} and {A,D}
 
 
 #######################################################
@@ -109,7 +109,7 @@ retDAG <- causaleffect::causal.effect(y=y, x=x, z=z,
                                       expr = FALSE,
                                       simp = TRUE,
                                       steps = TRUE)
-print(retDAG)
+#print(retDAG)
 
 
 
@@ -153,13 +153,13 @@ p_AC.B <- indepTest(Aind, Cind, Bind, suffStat)
 p_AC <- indepTest(Aind, Cind, c(), suffStat)
 p_AD.B <- indepTest(Aind, Dind, Bind, suffStat)
 
-all(c(p_AC, p_AC.B, p_AD.B) < alpha)
+print(all(c(p_AC, p_AC.B, p_AD.B) < alpha))
 
 # indepedencies
 p_AC.BD <- indepTest(Aind, Cind, c(Bind, Dind), suffStat)
 p_AD <- indepTest(Aind, Dind, c(), suffStat)
 
-all(c(p_AD, p_AC.BD) >= alpha)
+print(all(c(p_AD, p_AC.BD) >= alpha))
 
 
 ###############################
@@ -184,7 +184,7 @@ estPAG <- pcalg::fci(suffStat,
 plot(estPAG)
 
 # True and estimated PAGs are identical
-all(truePAG@amat - estPAG@amat == 0)
+print(all(truePAG@amat - estPAG@amat == 0))
 
 ###################################################
 # Checking the conditional independence relations #
@@ -198,8 +198,9 @@ all(truePAG@amat - estPAG@amat == 0)
 amat.mag <- pcalg::pag2magAM(estPAG@amat, 1)
 plotAG(amat.mag)
 amag <- pcalg::pcalg2dagitty(amat.mag, colnames(amat.mag), type="mag")
+
 estImpliedCI <- dagitty::impliedConditionalIndependencies(amag)
-estImpliedCI
+print(estImpliedCI)
 
 
 ######################################################
@@ -219,24 +220,24 @@ x = Bind
 estPAG.amat <- estPAG@amat
 
 adj <- adjustment(amat = estPAG.amat, amat.type = "pag", x = x, y = y, set.type = "all")
-adj # The valid adjustment sets are  {D} and {A, D}
+print(adj) # The valid adjustment sets are  {D} and {A, D}
 
 
 
 z <- c() # empty set
 gac_empty <- gac(estPAG.amat, x, y, z, type = "pag")
-gac_empty$gac # the empty set is not valid for adjustment
+print(gac_empty$gac) # the empty set is not valid for adjustment
 
 # the third condition of the gac is violated, i.e.,
 # not all proper definite status non-causal paths from x to y are blocked by z
-gac_empty$res
+print(gac_empty$res)
 
 z <- adj[[1]] # set {D}
 gac_d <- gac(estPAG.amat, x, y, z, type = "pag")
-gac_d$gac # the set {D} is valid for adjustment
+print(gac_d$gac) # the set {D} is valid for adjustment
 
 # all conditions of the gac are satisfied
-gac_d$res
+print(gac_d$res)
 
 
 
@@ -253,11 +254,11 @@ z = c()
 estPAG.amat <- estPAG@amat
 
 retPAG <- CIDP(estPAG.amat, x, y, z)
-retPAG$id
+print(retPAG$id)
 print(paste0("ID from PAG: ", retPAG$Qexpr[[retPAG$query]]))
-retPAG$Qexpr
 
 # This shows the steps taken by the CIDP algorithm
 # by substitution and simplication, we will get the same adjustment formula
+print(retPAG$Qexpr)
 
 
