@@ -183,6 +183,8 @@ estPAG <- pcalg::fci(suffStat,
                      verbose = TRUE)
 plot(estPAG)
 
+# True and estimated PAGs are identical
+all(truePAG@amat - estPAG@amat == 0)
 
 ###################################################
 # Checking the conditional independence relations #
