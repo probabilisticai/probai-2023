@@ -13,6 +13,9 @@ Materials of the Nordic Probabilistic AI School ([ProbAI](https://www.probabilis
 * Day 2 (June 13):
   - [[slides and materials](https://github.com/PGM-Lab/2023-ProbAI)] Helge Langseth, Andrés R. Masegosa, Thomas D. Nielsen - *Variational Inference and Optimization*
 
+* Day 3 (June 14):
+  - [[slides](https://github.com/probabilisticai/probai-2023/tree/main/day_3/1_Deep_Generative_Models_Trondheim_14_6_2023.pdf)] Rianne van den Berg - *Deep Generative Models 1*
+
 ## PhD Course (DT8122)
 
 To be announced.
