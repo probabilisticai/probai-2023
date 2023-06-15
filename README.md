@@ -16,6 +16,9 @@ Materials of the Nordic Probabilistic AI School ([ProbAI](https://www.probabilis
 * Day 3 (June 14):
   - [[slides](https://github.com/probabilisticai/probai-2023/tree/main/day_3/1_Deep_Generative_Models_Trondheim_14_6_2023.pdf)] Rianne van den Berg - *Deep Generative Models 1*
   - [[slides](https://github.com/probabilisticai/probai-2023/tree/main/day_3/2_Difusion_Models_Trondheim.pdf)] and [[material](https://colab.research.google.com/drive/1P-5yL4PFONx03Ekpu1vsNp3ghkFoOR_2?usp=sharing)] Chin-Wei Huang & Victor Garcia Satorras - *Workshop on Diffusion Models for Molecule Generation*
+ 
+* Day 4 (June 15):
+  - [[slides](https://github.com/probabilisticai/probai-2023/blob/main/day_4/1_yingzhenli/ProbAI2023_vi_bnn_tutorial.pdf)] [[lectures notes](https://github.com/probabilisticai/probai-2023/blob/main/day_4/1_yingzhenli/ProbAI2023_lecture_note.pdf)]  Yingzhen Li - *Introduction to Bayesian Neural Networks*
 
 ## PhD Course (DT8122)
 
