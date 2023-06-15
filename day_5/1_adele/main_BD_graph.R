@@ -119,11 +119,11 @@ retDAG <- causaleffect::causal.effect(y=y, x=x, z=z,
 
 N = 10000 # try different values of N
 #seed = ceiling(runif(1, 0, 10000))
-seed = 831
+seed = 831 # 8857
 set.seed(seed)
 dat <- generateDatasetFromSEM(trueSCM$beta, trueSCM$lat, N)
-head(dat)
 dat <- dat[,c("A", "B", "C", "D")]
+head(dat)
 
 # Note: we could also simulate data from the true DAG
 # The following function generates a random linear Gaussian SCM
@@ -149,18 +149,21 @@ Cind <- 3
 Dind <- 4
 
 # dependencies:
-p_AC.B <- indepTest(Aind, Cind, Bind, suffStat)
 p_AC <- indepTest(Aind, Cind, c(), suffStat)
+p_CD <- indepTest(Cind, Dind, c(), suffStat)
+p_AC.B <- indepTest(Aind, Cind, Bind, suffStat)
 p_AD.B <- indepTest(Aind, Dind, Bind, suffStat)
 
-print(all(c(p_AC, p_AC.B, p_AD.B) < alpha))
+dep_p <- c(p_AC, p_CD, p_AC.B, p_AD.B)
+print(dep_p)
+print(all(dep_p < alpha))
 
 # indepedencies
 p_AC.BD <- indepTest(Aind, Cind, c(Bind, Dind), suffStat)
 p_AD <- indepTest(Aind, Dind, c(), suffStat)
-
-print(all(c(p_AD, p_AC.BD) >= alpha))
-
+indep_p <- c(p_AD, p_AC.BD)
+print(indep_p)
+print(all(indep_p >= alpha))
 
 ###############################
 # Estimating a PAG using FCI  #

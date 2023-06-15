@@ -140,7 +140,8 @@ p_x2y3.y2 <- indepTest(X2ind, Y3ind, Y2ind, suffStat)
 p_y3y1.y5 <- indepTest(Y3ind, Y1ind, Y5ind, suffStat)
 p_y3y5 <- indepTest(Y3ind, Y5ind, c(), suffStat)
 
-print(all(c(p_x1y4.y3, p_x1y5.y1, p_x2y3.y2, p_y3y1.y5, p_y3y5) < alpha))
+dep_p <- c(p_x1y4.y3, p_x1y5.y1, p_x2y3.y2, p_y3y1.y5, p_y3y5)
+print(all(dep_p < alpha))
 
 
 # minimal indepedencies
@@ -160,8 +161,9 @@ p_y2y4 <- indepTest(Y2ind, Y4ind, c(), suffStat)
 p_y2y5 <- indepTest(Y2ind, Y5ind, c(), suffStat)
 p_y3y5.y4 <- indepTest(Y3ind, Y5ind, Y4ind, suffStat)
 
-print(all(c(p_x1y2.x2, p_x1y4, p_x1y5, p_x2y3, p_x2y4, p_x2y5, p_y1y2.x2,
-      p_y1y3.x1y4, p_y1y3.x1y5, p_y1y4.y5, p_y2y4, p_y2y5, p_y3y5.y4) >= alpha))
+indep_p <- c(p_x1y2.x2, p_x1y4, p_x1y5, p_x2y3, p_x2y4, p_x2y5, p_y1y2.x2,
+             p_y1y3.x1y4, p_y1y3.x1y5, p_y1y4.y5, p_y2y4, p_y2y5, p_y3y5.y4)
+print(all(indep_p >= alpha))
 
 ###############################
 # Estimating a PAG using FCI  #
