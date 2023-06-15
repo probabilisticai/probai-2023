@@ -23,4 +23,4 @@ Materials of the Nordic Probabilistic AI School ([ProbAI](https://www.probabilis
 
 ## PhD Course (DT8122)
 
-To be announced.
+https://github.com/probabilisticai/dt8122-2023
