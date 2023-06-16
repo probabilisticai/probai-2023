@@ -21,6 +21,9 @@ Materials of the Nordic Probabilistic AI School ([ProbAI](https://www.probabilis
   - [[slides](https://github.com/probabilisticai/probai-2023/blob/main/day_4/1_yingzhenli/ProbAI2023_vi_bnn_tutorial.pdf), [lectures notes](https://github.com/probabilisticai/probai-2023/blob/main/day_4/1_yingzhenli/ProbAI2023_lecture_note.pdf)]  Yingzhen Li - *Introduction to Bayesian Neural Networks*
   - [[slides](https://github.com/andrjohns/ProbAI-2023/blob/main/ProbAI2023.pdf), [notebook](https://colab.research.google.com/github/andrjohns/ProbAI-2023/blob/main/BayesianWorkflow.ipynb), [materials](https://github.com/andrjohns/ProbAI-2023)]  Andrew R. Johnson - *Bayesian Workflow*
 
+* Day 5 (June 16):
+  - [[slides and notebooks](https://github.com/probabilisticai/probai-2023/blob/main/day_5)] Adèle H. Ribeiro - *Causal Inference*
+
 ## PhD Course (DT8122)
 
 https://github.com/probabilisticai/dt8122-2023
