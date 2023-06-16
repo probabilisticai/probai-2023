@@ -23,6 +23,7 @@ Materials of the Nordic Probabilistic AI School ([ProbAI](https://www.probabilis
 
 * Day 5 (June 16):
   - [[slides and notebooks](https://github.com/probabilisticai/probai-2023/blob/main/day_5)] Adèle H. Ribeiro - *Causal Inference*
+  - [[Slides](https://github.com/Healthy-AI/IncomeSim/blob/main/ProbAI_Causal_machine_learning.pdf), [Notebook (Colab)](https://colab.research.google.com/drive/1jlEsSYcCDiqhamshxhkdQ703KKWaJHL9?usp=sharing), [All materials](https://github.com/Healthy-AI/IncomeSim) ]Fredrik D. Johansson - *Causal Machine Learning*
 
 ## PhD Course (DT8122)
 
